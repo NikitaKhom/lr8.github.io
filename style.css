@@ -1,0 +1,108 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 600px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.player {
+  text-align: center;
+}
+
+.score {
+  font-size: 2rem;
+  color: white;
+  background-color: #00aaff;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin-top: 5px;
+}
+
+.circles-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.circle {
+  width: 80px;
+  height: 80px;
+  background-color: yellow;
+  color: black;
+  border: 3px solid black;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.generate-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #28a745;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.generate-button:hover {
+  background-color: #218838;
+}
+
+
+@media (max-width: 600px) {
+  .game-container {
+      padding: 10px;
+  }
+
+  .scoreboard {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+  }
+
+  .circles-container {
+      flex-direction: column;
+      gap: 15px;
+  }
+
+  .circle {
+      width: 60px;
+      height: 60px;
+      font-size: 1.2rem;
+  }
+
+  .generate-button {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lr8</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="scoreboard">
+            <div class="player">
+                <h2>User</h2>
+                <div class="score" id="user_point">0</div>
+            </div>
+            <div class="player">
+                <h2>Computer</h2>
+                <div class="score" id="computer_point">0</div>
+            </div>
+        </div>
+        <div class="circles-container">
+            <div class="circle" id="user_circle">0</div>
+            <button id="generate" class="generate-button">Generate</button>
+            <div class="circle" id="computer_circle">0</div>
+        </div>
+    </div>
+    <script>
+let user_total_points = 0;
+let computer_total_points = 0;
+let round_counter = 0;
+
+document.getElementById('generate').addEventListener('click', play_game);
+
+function play_game() {
+    let computer_score = Math.floor(Math.random() * 10);
+    let user_score = Math.floor(Math.random() * 10);
+
+    document.getElementById('user_circle').innerText = user_score;
+    document.getElementById('computer_circle').innerText = computer_score;
+
+    if (user_score > computer_score) {
+        user_total_points++;
+    } else if (computer_score > user_score) {
+        computer_total_points++;
+    }
+
+    round_counter++;
+
+    document.getElementById('user_point').innerText = user_total_points;
+    document.getElementById('computer_point').innerText = computer_total_points;
+
+    if (round_counter === 3) {
+        if (user_total_points > computer_total_points) {
+            alert("потужно, ви здобули перемогу, вітаємо!");
+        } else if (computer_total_points > user_total_points) {
+            alert("зрада, ви програли...");
+        }
+
+        reset_game();
+    }
+}
+
+function reset_game() {
+    user_total_points = 0;
+    computer_total_points = 0;
+    round_counter = 0;
+
+    document.getElementById('user_point').innerText = 0;
+    document.getElementById('computer_point').innerText = 0;
+    document.getElementById('user_circle').innerText = 0;
+    document.getElementById('computer_circle').innerText = 0;
+}
+    </script>
+</body>
+</html>
